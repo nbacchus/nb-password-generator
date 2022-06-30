@@ -12,9 +12,6 @@ var numberCharacters =['1','2','3','4','5','6','7','8','9','0',];
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
 // Write password to the #password input
 function writePassword() {
   var correctPrompts = getPrompts();
@@ -41,25 +38,28 @@ function getPrompts() {
   characterLength = parseInt(prompt("How many characters would you like the passwords to be? Please choose between 8-128 characters."));
 
   if(isNaN(characterLength) || characterLength < 8 || characterLength > 128) {
-    alert("Character length invalid");
+    window.alert("Character length invalid");
     return false;
   }
 
-  if (confirm("Would you like to include uppercase letters in the password?")) {
-    choiceArray = choiceArray.lowerCharacters;
+  if (window.confirm("Would you like to include uppercase letters in the password?") ==true) {
+    choiceArray.push(lowerCharacters);
   }
 
-  if (confirm("Would you like to include lowercase letter in the password?")) {
-    choiceArray = choiceArray.upperCharacters;
+  if (window.confirm("Would you like to include lowercase letter in the password?") ==true) {
+    choiceArray.push(upperCharacters);
   }
 
-  if (confirm("Would you like to include numbers in the password?")) {
-    choiceArray = choiceArray.numberCharacters;
+  if (window.confirm("Would you like to include numbers in the password?") ==true) {
+    choiceArray.push(numberCharacters);
   }
 
-  if (confirm("Would you like to include special characters in the password?")) {
-    choiceArray.specialCharacters;
+  if (window.confirm("Would you like to include special characters in the password?") ==true) {
+    choiceArray.push(specialCharacters);
   }
 
   return true;
 }
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
