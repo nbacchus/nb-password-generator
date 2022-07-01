@@ -20,11 +20,11 @@ function userPrompts() {
     return false;
   }
 
-  if (window.confirm("Would you like to include uppercase letters in the password?")) {
+  if (window.confirm("Would you like to include lowercase letters in the password?")) {
     choiceArray = choiceArray.concat(lowerCharacters);
   }
 
-  if (window.confirm("Would you like to include lowercase letter in the password?")) {
+  if (window.confirm("Would you like to include uppercase letter in the password?")) {
     choiceArray = choiceArray.concat(upperCharacters);
   }
 
